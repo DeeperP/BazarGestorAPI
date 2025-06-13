@@ -67,11 +67,11 @@ public class VentaService implements IVentaService {
         int cantProduct = venta.getListaProductos().size();
 
         return new VentaMayorDTO(
-                venta.getCodigo_venta(),
-                venta.getTotal(),
-                venta.getUnCliente().getNombre(),
-                venta.getUnCliente().getApellido(),
-                cantProduct
+                venta.getCodigo_venta(),               // ID o código único de la venta
+                venta.getTotal(),                      // Monto total de la venta
+                venta.getUnCliente().getNombre(),      // Nombre del cliente asociado
+                venta.getUnCliente().getApellido(),    // Apellido del cliente
+                cantProduct                            // Cantidad de productos en la venta
         );
     }
 }
