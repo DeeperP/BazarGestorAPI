@@ -1,5 +1,6 @@
 package com.example.BazarGestorAPI.Service;
 
+import com.example.BazarGestorAPI.DTO.VentaMayorDTO;
 import com.example.BazarGestorAPI.Entity.Producto;
 import com.example.BazarGestorAPI.Entity.Venta;
 
@@ -16,4 +17,6 @@ public interface IVentaService {
     List<Producto> traerProducVenta(Long idVenta);
 
     Double totalVentasDelDia(LocalDate fecha);
+
+    VentaMayorDTO obtenerVentaMayor();
 }
