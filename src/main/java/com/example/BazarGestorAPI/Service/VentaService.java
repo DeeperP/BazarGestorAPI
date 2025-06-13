@@ -61,8 +61,11 @@ public class VentaService implements IVentaService {
     }
 
     @Override
-    public VentaMayorDTO obtenerVentaMayor(){
-        Venta venta = ventaRepository.findVentaConMayorTotal().orElseThrow(() -> new RuntimeException("No hay ventas"));
+    public VentaMayorDTO obtenerVentaMayor() {
+        // 1. Buscamos la venta con el mayor total usando el método del repositorio.
+        //    Si no existe ninguna venta, lanzamos una excepción con el mensaje "No hay ventas".
+        Venta venta = ventaRepository.findVentaConMayorTotal()
+                .orElseThrow(() -> new RuntimeException("No hay ventas"));
 
         // 2. Obtenemos la cantidad de productos asociados a esa venta.
         //    Suponemos que getListaProductos() devuelve una lista de productos vendidos en esa venta.
