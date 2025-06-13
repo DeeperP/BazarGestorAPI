@@ -15,19 +15,19 @@ public class Producto {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long codigo_producto;
     private String nombre, marca;
-    private Double costo, cantidad_disponible;
+    private Double costo, cantidadDisponible;
 
     @ManyToMany(mappedBy = "listaProductos")
     private List<Venta> ventas;
     public Producto() {
     }
 
-    public Producto(Long codigo_producto, String nombre, String marca, Double costo, Double cantidad_disponible) {
+    public Producto(Long codigo_producto, String nombre, String marca, Double costo, Double cantidadDisponible) {
         this.codigo_producto = codigo_producto;
         this.nombre = nombre;
         this.marca = marca;
         this.costo = costo;
-        this.cantidad_disponible = cantidad_disponible;
+        this.cantidadDisponible = cantidadDisponible;
     }
 
 }

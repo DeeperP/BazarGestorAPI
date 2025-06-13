@@ -36,7 +36,7 @@ public class ProductoService implements IProductoService {
 
     @Override
     public List<Producto> traerLess5(){
-        return productoRepository.findByCantidadDisponibleLessThan(5.0);
+        return productoRepository.findBycantidadDisponibleLessThan(5.0);
     }
 
 }
