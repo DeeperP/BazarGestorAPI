@@ -1,5 +1,6 @@
 package com.example.BazarGestorAPI.Service;
 
+import com.example.BazarGestorAPI.DTO.VentaMayorDTO;
 import com.example.BazarGestorAPI.Entity.Producto;
 import com.example.BazarGestorAPI.Entity.Venta;
 import com.example.BazarGestorAPI.Repository.VentaRepository;
@@ -36,7 +37,7 @@ public class VentaService implements IVentaService {
         ventaRepository.deleteById(id);
     }
 
-    /**
+    /*
      * Se utiliza Optional para evitar errores si no se encuentra la venta con el ID especificado.
      *  - Si la venta existe, se devuelve su lista de productos.
      *  - Si no existe, se lanza una excepción con un mensaje claro.
@@ -62,7 +63,7 @@ public class VentaService implements IVentaService {
 
     @Override
     public VentaMayorDTO obtenerVentaMayor() {
-        // 1. Buscamos la venta con el mayor total usando el método del repositorio.
+        // 1. Buscamos la venta con el mayor total usando el metodo del repositorio.
         //    Si no existe ninguna venta, lanzamos una excepción con el mensaje "No hay ventas".
         Venta venta = ventaRepository.findVentaConMayorTotal()
                 .orElseThrow(() -> new RuntimeException("No hay ventas"));
