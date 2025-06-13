@@ -66,6 +66,12 @@ public class VentaService implements IVentaService {
 
         int cantProduct = venta.getListaProductos().size();
 
+        // 3. Creamos y devolvemos un DTO con los datos necesarios:
+        //    - Código de venta
+        //    - Total de la venta
+        //    - Nombre del cliente
+        //    - Apellido del cliente
+        //    - Cantidad de productos vendidos
         return new VentaMayorDTO(
                 venta.getCodigo_venta(),               // ID o código único de la venta
                 venta.getTotal(),                      // Monto total de la venta
