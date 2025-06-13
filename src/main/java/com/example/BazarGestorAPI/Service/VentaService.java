@@ -59,4 +59,19 @@ public class VentaService implements IVentaService {
     public Double totalVentasDelDia(LocalDate fecha) {
         return ventaRepository.obtenerTotalVentasPorFecha(fecha);
     }
+
+    @Override
+    public VentaMayorDTO obtenerVentaMayor(){
+        Venta venta = ventaRepository.findVentaConMayorTotal().orElseThrow(() -> new RuntimeException("No hay ventas"));
+
+        int cantProduct = venta.getListaProductos().size();
+
+        return new VentaMayorDTO(
+                venta.getCodigo_venta(),
+                venta.getTotal(),
+                venta.getUnCliente().getNombre(),
+                venta.getUnCliente().getApellido(),
+                cantProduct
+        );
+    }
 }
