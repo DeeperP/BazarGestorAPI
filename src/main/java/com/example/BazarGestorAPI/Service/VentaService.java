@@ -64,6 +64,8 @@ public class VentaService implements IVentaService {
     public VentaMayorDTO obtenerVentaMayor(){
         Venta venta = ventaRepository.findVentaConMayorTotal().orElseThrow(() -> new RuntimeException("No hay ventas"));
 
+        // 2. Obtenemos la cantidad de productos asociados a esa venta.
+        //    Suponemos que getListaProductos() devuelve una lista de productos vendidos en esa venta.
         int cantProduct = venta.getListaProductos().size();
 
         // 3. Creamos y devolvemos un DTO con los datos necesarios:
